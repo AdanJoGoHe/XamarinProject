@@ -2,12 +2,12 @@
 CREATE DATABASE OLDSOLUTIONS
 */
 
-/*
+DROP TABLE REPARACION_PRODUCTO;
 DROP TABLE REPARACION;
 DROP TABLE CLIENTE;
 DROP TABLE OPERADOR;
 DROP TABLE PRODUCTO;
-*/
+
 
 /* Cada vez que un cliente solicite una reparacion, se creara un nuevo registro de CLIENTE aunque si se considera que es el mismo cliente se podra reutilizar */ 
 CREATE TABLE CLIENTE
@@ -27,7 +27,9 @@ dni VARCHAR(9) NOT NULL,
 nombre VARCHAR(25) NOT NULL,
 apellidos VARCHAR(25) NOT NULL,
 
-CONSTRAINT pk_operador PRIMARY KEY (id_operador)
+CONSTRAINT pk_operador PRIMARY KEY (id_operador),
+CONSTRAINT uk_operador UNIQUE KEY (dni)
+
 );
 
 CREATE TABLE PRODUCTO
@@ -62,6 +64,6 @@ CREATE TABLE REPARACION_PRODUCTO
 	id_producto INTEGER NOT NULL,
 
 	CONSTRAINT pk_reparacion_producto PRIMARY KEY (id_reparacion,id_producto),
-	CONSTRAINT fk_reparacion_producto1 FOREIGN KEY (id_reparacion)	REFERENCES REPARACIOn(id_reparacion),
+	CONSTRAINT fk_reparacion_producto1 FOREIGN KEY (id_reparacion)	REFERENCES REPARACION(id_reparacion),
 	CONSTRAINT fk_reparacion_producto2 FOREIGN KEY (id_producto) REFERENCES PRODUCTO(id_producto)
 );

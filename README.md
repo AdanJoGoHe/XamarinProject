@@ -13,8 +13,17 @@
 
 <p style="font-size: 10px;"> El cliente y la idea son ficticias, existen con el fin de dar un propósito a la aplicación, también estoy utilizando este proyecto para afianzarme con GIT y GITHub. Se esperan fallos con el fin de aprender.</p>
 
-## Descripción de la idea
+Tabla de contenidos
+------------------
 
+1. [Descripción de la idea](#Descripción-de-la-idea)
+2. [Descripción de la aplicación](#Descripción-de-la-aplicación)
+3. [Especificación de la base de datos](#Especificación-de-la-base-de-datos)
+4. [Herramientas Utilizadas](#Herramientas-Utilizadas)
+
+
+Descripción de la idea
+------------------
 El cliente me ha solicitado la creación de un programa para la gestión de reparaciones que realizan en la tienda creando una aplicación que sean capaz de manejar a través del móvil. 
 
 Las reparaciones se realizaran sobre equipos informáticos como ordenadores o servidores.
@@ -33,8 +42,8 @@ Las reparaciones se podrán entregar, el producto ha sido reparado y entregado a
 
 Las reparaciones se podrán eliminar, el producto ha sido devuelto sin reparar por circunstancias varias.
 
-## Descripción de la aplicación
-
+Descripción de la aplicación
+---------------------
 La aplicación contara con un CRUD desde la aplicación a el servicio web.
 
 El estado **Crear reparación** constara de un create que creara una tupla en la base de datos con los respectivos datos introducidos en la aplicación.
@@ -49,12 +58,8 @@ El estado **suspender reparación** constara de un put que modificara el **estad
 
 El estado **reparación terminada** constara de un put del campo "fecha de entrega" por la fecha dada por el operador y el campo **estado** se pondrá en "terminado".
 
-     
-
-# OldSolutions Database
-
-## Especificación
-
+Especificación de la base de datos
+---------------------
 En la base de datos almacenaremos ***CLIENTE***, el ***cliente*** *compra* ***reparacion***. El cliente sera almacenado por cada reparación prestada y contendrá un **nombre**, en caso de no ser dado por alguna razón se le pondrá "cliente físico", también tendremos un **telefono_contacto** donde almacenaremos el teléfono del cliente en caso de ser dado y un **id_cliente**.
 
 También almacenaremos el ***OPERADOR***, el ***operador*** *realiza* ***reparación***. El operador tendrá un, **nombre** un **apellido**, un **dni** y un **id_operador**.
@@ -72,11 +77,6 @@ De la ***REPARACION*** guardaremos **estado** de la reparación que estará limi
 
 [Otra posible solución](https://i.imgur.com/wg27Re6.png).
 
-<!-- WIP WIP WIP WIP WIP WIP WIP
-## Diagrama Entidad-Relación físico
-<img src="https://i.imgur.com/paGlP24.png" alt="hola" style="w idth: 950px; height: 700px; "/>
-[Link a la imagen](https://i.imgur.com/paGlP24.png)
--->
 
 ## Diagrama de clases
 <img src="https://i.imgur.com/Lu5S7Iy.png" alt="hola" style="width: 700px; height: 460px; "/>
@@ -84,7 +84,9 @@ De la ***REPARACION*** guardaremos **estado** de la reparación que estará limi
 [Link a la imagen](https://i.imgur.com/Lu5S7Iy.png)
 
 
-# Herramientas Utilizadas
+
+Herramientas Utilizadas
+---------------------
 Una descripción de las herramientas y tecnologías utilizadas en este proyecto.
 
 ## Xamarin :
@@ -92,6 +94,9 @@ Una descripción de las herramientas y tecnologías utilizadas en este proyecto.
 
 Xamarin o para ser mas especifico xamarin.forms es la tecnología principal de este proyecto, su premisa consiste en el desarrollo de una aplicación móvil que programando una base de código(codebase), se despliegue para todas las plataformas móviles(Android,IOS,Windows). 
 
+Dentro de este he utilizado los paquetes :
+
+***Newtonsoft.Json*** 
 ## MySql : 
 <img src="https://i.imgur.com/y8unasD.png" alt="hola" style="width: 150px; height: 150px; "/>
 
