@@ -16,8 +16,9 @@ namespace oldSolutions.Vista
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class VistaOperador : ContentPage
 	{
-        
-        private HttpCliente hc = new HttpCliente("operador/");
+        public ObservableCollection<PostOperador> Posts { get; set; }
+        private HttpCliente connection = new HttpCliente("operador/"); //Instancia de la clase HttpCliente
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -30,10 +31,10 @@ namespace oldSolutions.Vista
         /// </summary>
         protected override async void OnAppearing()
         {  
-            string content = await hc.Response.GetStringAsync(hc.Url+"listar"); //Sends a GET request to the specified Uri and returns the response body as a string in an asynchronous operation
+            string content = await connection.Response.GetStringAsync(connection.Url); //Sends a GET request to the specified Uri and returns the response body as a string in an asynchronous operation
             List<PostOperador> posts = JsonConvert.DeserializeObject<List<PostOperador>>(content); //Deserializes or converts JSON String into a collection of Post
-            hc.Posts = new ObservableCollection<PostOperador>(posts); //Converting the List to ObservalbleCollection of Post            
-            listOperatorsView.ItemsSource = hc.Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
+            Posts = new ObservableCollection<PostOperador>(posts); //Converting the List to ObservalbleCollection of Post            
+            listOperatorsView.ItemsSource = Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
             base.OnAppearing();            
         }
 

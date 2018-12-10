@@ -49,8 +49,9 @@ app.post('/cliente/insertar', (req, res) =>
     })
 });
 
+// **********************ZONA CLIENTES********************
 //Get Todos los clientes
-app.get('/cliente/listar', (req, res) =>
+app.get('/cliente', (req, res) =>
 {
     var sql = 'SELECT * FROM CLIENTE';
     mysqlConnection.query(sql, (err, rows, fields) => 
@@ -65,7 +66,7 @@ app.get('/cliente/listar', (req, res) =>
 
 
 //Get cliente por telefono
-app.get('/cliente/listar/:id', (req, res) => 
+app.get('/cliente/:id', (req, res) => 
 {
     var sql = 'SELECT * FROM CLIENTE WHERE telefono_contacto = ?';
     mysqlConnection.query(sql, [req.params.id], (err, rows, fields) =>
@@ -80,7 +81,7 @@ app.get('/cliente/listar/:id', (req, res) =>
 // *********************FIN ZONA CLIENTES*******************
 // **********************ZONA OPERADORES********************
 //Get Todos los operadores
-app.get('/operador/listar', (req, res) =>
+app.get('/operador', (req, res) =>
 {
     var sql = 'SELECT * FROM OPERADOR';
     mysqlConnection.query(sql, (err, rows, fields) => 
@@ -94,7 +95,7 @@ app.get('/operador/listar', (req, res) =>
 });
 
 //Get operador por dni
-app.get('/operador/listar/:id', (req, res) => 
+app.get('/operador/:id', (req, res) => 
 {
     var sql = 'SELECT * FROM OPERADOR WHERE dni = ?';
     mysqlConnection.query(sql, [req.params.id], (err, rows, fields) =>
@@ -108,7 +109,7 @@ app.get('/operador/listar/:id', (req, res) =>
 });
 
 //Delete un operador por dni
-app.delete('/operador/borrar/:id', (req, res) =>
+app.delete('/operador/:id', (req, res) =>
 {
     var sql = 'DELETE FROM OPERADOR WHERE dni = ?';
     mysqlConnection.query(sql, [req.params.id], (err, rows, fields) => {
@@ -121,7 +122,7 @@ app.delete('/operador/borrar/:id', (req, res) =>
 });
 
 //Insert un operador, orden : dni-nombre-apelllidos
-app.post('/operador/insertar', (req, res) => 
+app.post('/operador', (req, res) => 
 {
     var _dni = req.body.operador.dni; 
     var _nombre = req.body.operador.nombre;
@@ -141,7 +142,7 @@ app.post('/operador/insertar', (req, res) =>
     })
 });
 
-app.put('/operador/editar', (req, res) => 
+app.put('/operador', (req, res) => 
 {    
     var _dni = req.body.operador.dni; 
     var _nombre = req.body.operador.nombre;

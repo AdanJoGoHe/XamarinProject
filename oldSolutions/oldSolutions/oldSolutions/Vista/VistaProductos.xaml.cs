@@ -10,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace oldSolutions.Vista
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Page2 : ContentPage
+	public partial class VistaProductos : ContentPage
 	{
-		public Page2 ()
+		public VistaProductos ()
 		{
 			InitializeComponent ();
-
 		}
 	}
 }

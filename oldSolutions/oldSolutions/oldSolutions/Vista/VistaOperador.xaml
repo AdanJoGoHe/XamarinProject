@@ -10,17 +10,19 @@
                      Clicked="AddOperadorToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     
-    <StackLayout>
 
         <ListView x:Name="listOperatorsView" HasUnevenRows="True" ItemSelected="OnItemSelected">
            <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label Text="{Binding Id}" />                          
-                            <Label Text="{Binding Nombre}"/>
-                            <Label Text="{Binding Apellidos}"/>
-                            <Label Text="{Binding Dni}"/>                           
+                            
+                            <StackLayout Padding="0,1,0,0" Orientation="Horizontal">
+                                <Label Text="{Binding Nombre}"/>
+                                <Label Text="{Binding Apellidos}"/>
+                            </StackLayout>                            
+                            <Label Text="{Binding Dni}"/>       
+                            
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -58,6 +60,5 @@
                         </ListView.ItemTemplate>
             !-->
 
-    </StackLayout>
 
 </ContentPage>

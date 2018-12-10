@@ -6,8 +6,9 @@
              Title="Gestion de reparaciones">
     <TabbedPage.Children>
         <tabs:Page1/>
-        <tabs:Page2/>
+        <tabs:VistaCliente/>
         <tabs:VistaOperador/>
+        <tabs:VistaProductos/>
     </TabbedPage.Children>
     
     

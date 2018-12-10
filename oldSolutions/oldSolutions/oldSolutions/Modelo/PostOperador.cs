@@ -10,9 +10,8 @@ namespace oldSolutions.Modelo
     public class PostOperador : INotifyPropertyChanged
     {
 
-        public int _id;
-
-        [JsonProperty("id_operador")] //This maps the element title of your web service to your model
+        private int _id;
+        [JsonProperty("id_operador")] //This maps the element id_operador of your web service to your model
         public int Id
         {
             get => _id;
@@ -22,9 +21,9 @@ namespace oldSolutions.Modelo
                 OnPropertyChanged(); //This notifies the View or ViewModel that the value that a property in the Model has changed and the View needs to be updated.
             }
         }
-        public string _nombre;
 
-        [JsonProperty("nombre")] //This maps the element title of your web service to your model
+        private string _nombre;
+        [JsonProperty("nombre")] 
         public string Nombre
         {
             get => _nombre;
@@ -34,9 +33,9 @@ namespace oldSolutions.Modelo
                 OnPropertyChanged(); //This notifies the View or ViewModel that the value that a property in the Model has changed and the View needs to be updated.
             }
         }
-        public string _apellidos;
 
-        [JsonProperty("apellidos")] //This maps the element title of your web service to your model
+        private string _apellidos;
+        [JsonProperty("apellidos")]
         public string Apellidos
         {
             get => _apellidos;
@@ -47,9 +46,8 @@ namespace oldSolutions.Modelo
             }
         }
 
-        public string _dni;
-
-        [JsonProperty("dni")] //This maps the element title of your web service to your model
+        private string _dni;
+        [JsonProperty("dni")]
         public string Dni
         {
             get => _dni;

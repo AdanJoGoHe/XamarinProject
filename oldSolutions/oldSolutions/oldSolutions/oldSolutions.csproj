@@ -29,6 +29,9 @@
     <Compile Update="Vista\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Vista\VistaCliente.xaml.cs">
+      <DependentUpon>VistaCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Vista\VistaOperador.xaml.cs">
       <DependentUpon>VistaOperador.xaml</DependentUpon>
     </Compile>
@@ -41,13 +44,16 @@
     <EmbeddedResource Update="Vista\Page1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\Page2.xaml">
+    <EmbeddedResource Update="Vista\VistaCliente.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vista\VistaOperador.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vista\VistaOperadorSeleccionado.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vista\VistaProductos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
