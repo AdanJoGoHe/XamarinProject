@@ -17,11 +17,11 @@ namespace oldSolutions.Vista
         public HttpClient Response { get => _response; }
         public string Url { get => _Url; private set { _Url = value; } }
         
-
+        // La url representa la ruta a llamar
         public HttpCliente(string url)
         {
-            this.Url = "http://" + _ipLocal + _puerto + url;
+            this.Url = _ipLocal + _puerto + url;
             
-    }
+        }
     }
 }

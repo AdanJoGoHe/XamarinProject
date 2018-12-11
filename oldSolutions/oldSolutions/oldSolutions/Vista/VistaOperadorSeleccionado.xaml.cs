@@ -1,4 +1,5 @@
-﻿using System;
+﻿using oldSolutions.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,19 @@ namespace oldSolutions.Vista
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class VistaOperadorSeleccionado : ContentPage
 	{
-		public VistaOperadorSeleccionado ()
+        public PostOperador op;
+        public VistaOperadorSeleccionado (PostOperador postOperador)
 		{
-			InitializeComponent ();
-
-
+            op = postOperador;
+            InitializeComponent ();
 		}
+        protected override async void OnAppearing()
+        {
+            idOperador.Text = op.Id.ToString();
+            nombreOperador.Text = op.Nombre;
+            apellidosOperador.Text = op.Apellidos;
+            dniOperador.Text = op.Dni;
+        }
+            
 	}
 }

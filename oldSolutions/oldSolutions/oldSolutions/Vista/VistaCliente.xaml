@@ -9,14 +9,19 @@
                      Clicked="AddClienteToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="listOperatorsView" HasUnevenRows="True" ItemSelected="OnItemSelected">
+    <ListView x:Name="listOperatorsView" HasUnevenRows="True" ItemSelected="OnItemSelected" SeparatorColor="DarkBlue">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label Text="{Binding Id}" />
-                            <Label Text="{Binding Nombre}"/>
-                            <Label Text="{Binding Telefono}"/>
+                        <StackLayout Orientation="Horizontal" Margin="10,10,10,0">
+                                <Label Text="Nombre : "/>
+                                <Label TextColor="DarkGreen" Text="{Binding Nombre}"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Margin="10,3,10,10">
+                                <Label Text="Telefono : "/>
+                                <Label TextColor="DarkBlue" Text="{Binding Telefono}"/>
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

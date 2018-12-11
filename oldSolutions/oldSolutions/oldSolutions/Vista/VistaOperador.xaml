@@ -3,62 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:modelo="clr-namespace:oldSolutions.Modelo"
              x:Class="oldSolutions.Vista.VistaOperador"
-             Title="Operadores">
-    
+             Title="Operadores">    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New"
                      Clicked="AddOperadorToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
-    
-
+    <StackLayout>
         <ListView x:Name="listOperatorsView" HasUnevenRows="True" ItemSelected="OnItemSelected">
            <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
-                            
-                            <StackLayout Padding="0,1,0,0" Orientation="Horizontal">
-                                <Label Text="{Binding Nombre}"/>
-                                <Label Text="{Binding Apellidos}"/>
+                        <StackLayout>                            
+                            <StackLayout Margin="10,10,10,1" Orientation="Horizontal">
+                                <Label  Text="Nombre :"/>
+                                <Label TextColor="DarkGreen" Text="{Binding Nombre}"/>
+                                <Label TextColor="DarkGreen" Text="{Binding Apellidos}"/>
                             </StackLayout>                            
-                            <Label Text="{Binding Dni}"/>       
-                            
-                        </StackLayout>
+                            <StackLayout Margin="10,1,10,10" Orientation="Horizontal">
+                                <Label Text="DNI : "/>
+                                <Label TextColor="DarkBlue" Text="{Binding Dni}"/>
+                            </StackLayout>
+                    </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <!--
-        <StackLayout Orientation="Horizontal">
-            <Button
-                BackgroundColor="Khaki"
-                Clicked="OnAdd"
-                Text="Add" />
-            <Button
-                BackgroundColor="MediumPurple"
-                Clicked="OnUpdate"
-                HorizontalOptions="CenterAndExpand"
-                Text="Update" />
-            <Button
-                BackgroundColor="Crimson"
-                Clicked="OnDelete"
-                Text="Delete" />
         </StackLayout>
-        
-         <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding Title}" />                          
-                            <Label Text="{Binding nombre}"/>
-                            <Label Text="{Binding apellidos}"/>
-                            <Label Text="{Binding dni}"/>                           
-                        </StackLayout>
-                        </ViewCell>
-                        </DataTemplate>
-                        </ListView.ItemTemplate>
-            !-->
-
-
 </ContentPage>

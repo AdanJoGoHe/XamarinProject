@@ -4,9 +4,20 @@
              x:Class="oldSolutions.Vista.VistaOperadorSeleccionado">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
+                <Label Text="ID :" />
+                <Entry x:Name="idOperador" Placeholder="id"/>
+                <Label Text="DNI :" />
+                <Entry x:Name="dniOperador" MinimumWidthRequest="75" Placeholder="dni" WidthRequest="100"/>                
+            </StackLayout>
+            <StackLayout Padding="2,5,2,2" Orientation="Horizontal">
+                <Label Text="Nombre :"/>
+                <Entry x:Name="nombreOperador" Placeholder="nombre" />
+            </StackLayout>
+            <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
+                <Label Text="Apellidos :"/>
+                <Entry x:Name="apellidosOperador" Placeholder="apellidos" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

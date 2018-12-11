@@ -16,5 +16,6 @@ namespace oldSolutions.Vista
 		{
 			InitializeComponent ();
 		}
+
 	}
 }

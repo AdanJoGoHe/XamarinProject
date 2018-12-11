@@ -47,7 +47,7 @@ namespace oldSolutions.Vista
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new VistaOperadorSeleccionado());
+            await Navigation.PushAsync(new VistaClienteSeleccionado(item));
 
             // Manually deselect item.
             listOperatorsView.SelectedItem = null;
