@@ -8,7 +8,7 @@ namespace oldSolutions.Vista
 {
     class HttpCliente
     {        
-        private const string _ipLocal = "192.168.1.76";
+        private const string _ipLocal = "http://192.168.1.76";
         private const string _puerto = ":3000/";
         private string _Url; 
         private HttpClient _response = new HttpClient(); //Instancia HttpClient. (System.Net.Http)        

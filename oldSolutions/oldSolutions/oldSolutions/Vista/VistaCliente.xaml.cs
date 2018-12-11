@@ -34,12 +34,10 @@ namespace oldSolutions.Vista
             base.OnAppearing();
         }
 
-        private void AddClienteToolbarItem_Clicked(object sender, EventArgs e)
+        private async void AddClienteToolbarItem_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new VistaClienteSeleccionado());
         }
-
-
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {

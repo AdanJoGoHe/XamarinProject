@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
-                <Label Text="ID :" />
+                <Label x:Name="idLabel"  Text="ID :" />
                 <Entry x:Name="idCliente" Placeholder="id"/>
             </StackLayout>
             <StackLayout Padding="2,5,2,2" Orientation="Horizontal">
@@ -17,22 +17,24 @@
                 <Label Text="Telefono :"/>
                 <Entry x:Name="telefonoCliente" Placeholder="apellidos" />
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Margin="10,2,10,0">
                 <Button
                 BackgroundColor="Khaki"
                 Clicked="OnAdd"
-                Text="Add" />
-                <!--
+                Text="Add" 
+                x:Name="addButon"/>                
                 <Button
                 BackgroundColor="MediumPurple"
                 Clicked="OnUpdate"
                 HorizontalOptions="CenterAndExpand"
-                Text="Update" />
+                Text="Update" 
+                x:Name="updateButon"/>
                 <Button
                 BackgroundColor="Crimson"
                 Clicked="OnDelete"
-                Text="Delete" />
-                -->
+                Text="Delete" 
+                x:Name="deleteButon"/>
+                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -21,7 +21,7 @@ namespace oldSolutions.Modelo
             }
         }
 
-        public string _nombre { get; set; }
+        private string _nombre { get; set; }
         [JsonProperty("nombre")]
         public string Nombre
         {

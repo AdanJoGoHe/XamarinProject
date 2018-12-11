@@ -38,9 +38,9 @@ namespace oldSolutions.Vista
             base.OnAppearing();            
         }
 
-        private void AddOperadorToolbarItem_Clicked(object sender, EventArgs e)
+        private async void AddOperadorToolbarItem_Clicked(object sender, EventArgs e)
         {
-
+            
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
