@@ -3,11 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="oldSolutions.Vista.VistaProductos"
              Title="Productos">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New"
+                     Clicked="AddProductoToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <ListView x:Name="listProductsView" HasUnevenRows="True" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <StackLayout Margin="10,10,10,1" Orientation="Horizontal">
+                                <Label  Text="Nombre :"/>
+                                <Label TextColor="DarkGreen" Text="{Binding Nombre}"/>
+                            </StackLayout>
+                            <StackLayout Margin="10,1,10,10" Orientation="Horizontal">
+                                <Label Text="Descripcion : "/>
+                                <Label TextColor="DarkBlue" Text="{Binding Descripcion}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
 </ContentPage>

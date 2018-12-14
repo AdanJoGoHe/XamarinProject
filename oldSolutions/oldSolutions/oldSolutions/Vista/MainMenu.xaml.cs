@@ -14,8 +14,7 @@ namespace oldSolutions.Vista
 	{
 		public MainMenu ()
 		{
-			InitializeComponent ();
-            
+			InitializeComponent ();            
         }
 	}
 }

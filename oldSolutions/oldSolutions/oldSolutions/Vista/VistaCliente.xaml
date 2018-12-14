@@ -9,7 +9,7 @@
                      Clicked="AddClienteToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="listOperatorsView" HasUnevenRows="True" ItemSelected="OnItemSelected" SeparatorColor="DarkBlue">
+    <ListView x:Name="listClientsView" HasUnevenRows="True" ItemSelected="OnItemSelected" SeparatorColor="DarkBlue">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

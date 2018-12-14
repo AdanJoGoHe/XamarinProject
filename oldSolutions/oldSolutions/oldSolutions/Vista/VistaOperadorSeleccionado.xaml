@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="oldSolutions.Vista.VistaOperadorSeleccionado">
+    
+    
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
-                <Label Text="ID :" />
+                <Label x:Name="labelIdOperador" Text="ID :" />
                 <Entry x:Name="idOperador" Placeholder="id"/>
                 <Label Text="DNI :" />
                 <Entry x:Name="dniOperador" MinimumWidthRequest="75" Placeholder="dni" WidthRequest="100"/>                
@@ -18,6 +20,26 @@
                 <Label Text="Apellidos :"/>
                 <Entry x:Name="apellidosOperador" Placeholder="apellidos" />
             </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,2,10,0">
+                <Button
+                BackgroundColor="Khaki"
+                Clicked="OnAdd"
+                Text="Add" 
+                x:Name="addButon"/>
+                <Button
+                BackgroundColor="MediumPurple"
+                Clicked="OnUpdate"
+                HorizontalOptions="CenterAndExpand"
+                Text="Update" 
+                x:Name="updateButon"/>
+                <Button
+                BackgroundColor="Crimson"
+                Clicked="OnDelete"
+                Text="Delete" 
+                x:Name="deleteButon"/>
+
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

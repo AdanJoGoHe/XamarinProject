@@ -44,6 +44,19 @@ namespace oldSolutions.Modelo
                 OnPropertyChanged();
             }
         }
+
+        private string _password { get; set; }
+        [JsonProperty("password")]
+        public string password
+        {
+            get => _password;
+            set
+            {
+                _password = value;
+                OnPropertyChanged();
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

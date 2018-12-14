@@ -23,7 +23,7 @@ namespace oldSolutions.Modelo
         }
 
         private string _nombre;
-        [JsonProperty("nombre")] 
+        [JsonProperty("nombre")]
         public string Nombre
         {
             get => _nombre;
@@ -52,11 +52,7 @@ namespace oldSolutions.Modelo
         {
             get => _dni;
             set
-            {
-                if(value == null)
-                {
-                    throw new Exception();
-                } 
+            {          
 
                 _dni = value;
                 OnPropertyChanged(); //This notifies the View or ViewModel that the value that a property in the Model has changed and the View needs to be updated.

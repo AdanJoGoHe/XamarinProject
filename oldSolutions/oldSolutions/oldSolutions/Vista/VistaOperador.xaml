@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:modelo="clr-namespace:oldSolutions.Modelo"
              x:Class="oldSolutions.Vista.VistaOperador"
-             Title="Operadores">    
+             Title="Operadores">  
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New"
                      Clicked="AddOperadorToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
+    
     <StackLayout>
         <ListView x:Name="listOperatorsView" HasUnevenRows="True" ItemSelected="OnItemSelected">
            <ListView.ItemTemplate>
@@ -28,5 +30,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        </StackLayout>
+    </StackLayout>
+    
 </ContentPage>

@@ -40,7 +40,7 @@ namespace oldSolutions.Vista
 
         private async void AddOperadorToolbarItem_Clicked(object sender, EventArgs e)
         {
-            
+            await Navigation.PushAsync(new VistaOperadorSeleccionado());
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)

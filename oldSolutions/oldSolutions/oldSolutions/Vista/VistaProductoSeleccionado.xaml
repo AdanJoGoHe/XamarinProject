@@ -1,33 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="oldSolutions.Vista.VistaClienteSeleccionado"
-             Title="Cliente">
-    
+             x:Class="oldSolutions.Vista.VistaProductoSeleccionado">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
-                <Label x:Name="idLabel"  Text="ID :" />
-                <Entry x:Name="idCliente" Placeholder="id.."/>
+            <StackLayout Padding="2,5,2,2" Orientation="Horizontal">
+                <Label x:Name="labelIdProducto" Text="ID :"/>
+                <Entry x:Name="idProducto" Placeholder="ID" />
             </StackLayout>
             <StackLayout Padding="2,5,2,2" Orientation="Horizontal">
                 <Label Text="Nombre :"/>
-                <Entry x:Name="nombreCliente" Placeholder="nombre.." />
+                <Entry x:Name="nombreProducto" Placeholder="Nombre" />
             </StackLayout>
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
-                <Label Text="Telefono :"/>
-                <Entry x:Name="telefonoCliente" Placeholder="apellidos.." />
-            </StackLayout>
-            <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
-                <Label Text="Contraseña :"/>
-                <Entry x:Name="passCliente" Placeholder="Contraseña.." />
+                <Label Text="Descripción :"/>
+                <Entry x:Name="descripcionProducto" Placeholder="Descripcion..." />
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10,2,10,0">
                 <Button
                 BackgroundColor="Khaki"
                 Clicked="OnAdd"
                 Text="Add" 
-                x:Name="addButon"/>                
+                x:Name="addButon"/>
                 <Button
                 BackgroundColor="MediumPurple"
                 Clicked="OnUpdate"
@@ -39,8 +33,9 @@
                 Clicked="OnDelete"
                 Text="Delete" 
                 x:Name="deleteButon"/>
-                
+
             </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
