@@ -29,10 +29,10 @@
     <Compile Update="Vista\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Vista\VistaCliente.xaml.cs">
+    <Compile Update="Vista\VistasTab\VistaCliente.xaml.cs">
       <DependentUpon>VistaCliente.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Vista\VistaOperador.xaml.cs">
+    <Compile Update="Vista\VistasTab\VistaOperador.xaml.cs">
       <DependentUpon>VistaOperador.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -50,22 +50,25 @@
     <EmbeddedResource Update="Vista\Page2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\VistaCliente.xaml">
+    <EmbeddedResource Update="Vista\VistaLogin.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\VistaClienteSeleccionado.xaml">
+    <EmbeddedResource Update="Vista\VistasTab\VistaCliente.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\VistaOperador.xaml">
+    <EmbeddedResource Update="Vista\VistasTabSeleccionado\VistaClienteSeleccionado.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\VistaOperadorSeleccionado.xaml">
+    <EmbeddedResource Update="Vista\VistasTab\VistaOperador.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\VistaProductos.xaml">
+    <EmbeddedResource Update="Vista\VistasTabSeleccionado\VistaOperadorSeleccionado.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\VistaProductoSeleccionado.xaml">
+    <EmbeddedResource Update="Vista\VistasTab\VistaProductos.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vista\VistasTabSeleccionado\VistaProductoSeleccionado.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

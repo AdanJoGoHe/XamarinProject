@@ -15,6 +15,6 @@ namespace oldSolutions.Vista
 		public Page2 ()
 		{
 			InitializeComponent ();
-		}
+		}     
 	}
 }

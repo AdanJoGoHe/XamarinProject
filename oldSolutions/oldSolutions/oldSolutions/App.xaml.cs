@@ -9,12 +9,13 @@ namespace oldSolutions
 {
     public partial class App : Application
     {
+
         public App()
         {
             InitializeComponent();
 
             //MainPage = new NavigationPage(new MainMenu());
-            MainPage = new DrawPage(); 
+            MainPage = new VistaLogin(); 
         }
 
         protected override void OnStart()

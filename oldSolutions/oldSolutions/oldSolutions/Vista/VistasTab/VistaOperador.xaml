@@ -11,7 +11,7 @@
     </ContentPage.ToolbarItems>
     
     <StackLayout>
-        <ListView x:Name="listOperatorsView" HasUnevenRows="True" ItemSelected="OnItemSelected">
+        <ListView x:Name="lista" HasUnevenRows="True" ItemSelected="OnItemSelected">
            <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -30,6 +30,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
-    
+    </StackLayout>    
 </ContentPage>

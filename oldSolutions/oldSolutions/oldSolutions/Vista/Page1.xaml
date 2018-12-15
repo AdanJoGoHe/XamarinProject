@@ -5,7 +5,7 @@
              Title="Pagina 1">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Pagina 1"/>
+            <Label Text="Pagina 1"/>     
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -34,7 +34,7 @@ namespace oldSolutions.Vista
             string content = await connection.Response.GetStringAsync(connection.Url); //Sends a GET request to the specified Uri and returns the response body as a string in an asynchronous operation
             List<PostOperador> posts = JsonConvert.DeserializeObject<List<PostOperador>>(content); //Deserializes or converts JSON String into a collection of Post
             Posts = new ObservableCollection<PostOperador>(posts); //Converting the List to ObservalbleCollection of Post            
-            listOperatorsView.ItemsSource = Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
+            lista.ItemsSource = Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
             base.OnAppearing();            
         }
 
@@ -52,14 +52,14 @@ namespace oldSolutions.Vista
             await Navigation.PushAsync(new VistaOperadorSeleccionado(item));
 
             // Manually deselect item.
-            listOperatorsView.SelectedItem = null;
+            lista.SelectedItem = null;
         }
     }
 
     /* ************ZONA ZERO *****************
     
             
-            var lov = listOperatorsView;
+            var lov = lista;
             var listaOperadores = new List<String>
             
             {

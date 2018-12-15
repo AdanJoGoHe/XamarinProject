@@ -19,11 +19,12 @@ namespace oldSolutions.Vista
     {
         PostCliente pc;
         public ObservableCollection<PostCliente> _posts { get; set; }
-        private HttpCliente connection = new HttpCliente("cliente"); //Instancia de la clase HttpCliente
+        private HttpCliente connection = new HttpCliente("cliente/"); //Instancia de la clase HttpCliente
         private String Titulo
         {
             get { return Titulo; } set { Titulo = value; }
         }
+
         public VistaClienteSeleccionado(PostCliente postCliente)
         {
             pc = postCliente;
@@ -78,7 +79,7 @@ namespace oldSolutions.Vista
         private async void OnDelete(object sender, EventArgs e)
         {                        
             
-            var eksudi = await connection.Response.DeleteAsync(connection.Url + "/DeleteFromId/" + pc.Id); //Send a DELETE request to the specified Uri as an asynchronous   
+            var eksudi = await connection.Response.DeleteAsync(connection.Url + "DeleteFromId/" + pc.Id); //Send a DELETE request to the specified Uri as an asynchronous   
             /*
             if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha eliminado correctamente al cliente", ToastLength.Long).Show(); }
             else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }

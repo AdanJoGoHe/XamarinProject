@@ -17,8 +17,8 @@ namespace oldSolutions.Vista.DrawMenu
         {
             InitializeComponent();
             menuList = new List<MasterPageItem>();
-            var page1 = new MasterPageItem() { Title = "Gestion de reparaciones", TargetType = typeof(MainMenu) };
-            var page2 = new MasterPageItem() { Title = "Settings", TargetType = typeof(Page2) };
+            var page1 = new MasterPageItem() { Title = "Gestion de reparaciones" , TargetType = typeof(MainMenu) };
+            var page2 = new MasterPageItem() { Title = "Settings" , TargetType = typeof(Page2) };
             menuList.Add(page1);
             menuList.Add(page2);
             MenuDesplegable.ItemsSource = menuList;

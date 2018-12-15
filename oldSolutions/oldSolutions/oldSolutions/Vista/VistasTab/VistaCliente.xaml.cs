@@ -12,15 +12,15 @@ using System.Collections.ObjectModel;
 
 namespace oldSolutions.Vista
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class VistaCliente : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class VistaCliente : ContentPage
+    {
         public ObservableCollection<PostCliente> Posts { get; set; }
         private HttpCliente connection = new HttpCliente("cliente/"); //Instancia de la clase HttpCliente
 
         public VistaCliente()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
         }
         /// <summary>
         /// Se llama a este metodo cuando aparece la ventana(antes de aparecer al usuario).
@@ -30,9 +30,10 @@ namespace oldSolutions.Vista
             string content = await connection.Response.GetStringAsync(connection.Url); //Sends a GET request to the specified Uri and returns the response body as a string in an asynchronous operation
             List<PostCliente> posts = JsonConvert.DeserializeObject<List<PostCliente>>(content); //Deserializes or converts JSON String into a collection of Post           
             Posts = new ObservableCollection<PostCliente>(posts); //Converting the List to ObservalbleCollection of Post            
-            listClientsView.ItemsSource = Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
+            lista.ItemsSource = Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
             base.OnAppearing();
         }
+
 
         private async void AddClienteToolbarItem_Clicked(object sender, EventArgs e)
         {
@@ -48,7 +49,24 @@ namespace oldSolutions.Vista
             await Navigation.PushAsync(new VistaClienteSeleccionado(item));
 
             // Manually deselect item.
-            listClientsView.SelectedItem = null;
+            lista.SelectedItem = null;
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            {
+                //thats all you need to make a search  
+
+                if (string.IsNullOrEmpty(e.NewTextValue))
+                {
+                    lista.ItemsSource = Posts;
+                }
+
+                else 
+                {
+                    lista.ItemsSource = Posts.Where(x => x.Nombre.StartsWith(e.NewTextValue));
+                }
+            }
         }
     }
 }

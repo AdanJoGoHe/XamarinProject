@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="oldSolutions.Vista.VistaLogin">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="failMsg" Text="" IsVisible="False"></Label>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Dni :" />
+                <Entry x:Name="dniEntry" Placeholder="Dni..." />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Contraseña :" />
+                <Entry x:Name="passInput" Placeholder="Contraseña..." />
+            </StackLayout>
+            <Button x:Name="botonEnviar" Text="Enviar" Clicked="Button_Clicked"/>
+            <Label x:Name="Test"  Text="Testing" />
+            <Label x:Name="TestConexion"  Text="Testing" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

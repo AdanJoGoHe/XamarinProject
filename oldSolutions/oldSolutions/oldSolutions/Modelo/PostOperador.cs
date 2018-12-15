@@ -59,6 +59,18 @@ namespace oldSolutions.Modelo
             }
         }
 
+        private string _password { get; set; }
+        [JsonProperty("password")]
+        public string password
+        {
+            get => _password;
+            set
+            {
+                _password = value;
+                OnPropertyChanged();
+            }
+        }
+
         //This is how you create your OnPropertyChanged() method
         public event PropertyChangedEventHandler PropertyChanged;
 
