@@ -10,7 +10,8 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <ListView x:Name="listProductsView" HasUnevenRows="True" ItemSelected="OnItemSelected">
+        <Label x:Name="labelErrorConexion" IsVisible="False"/>
+        <ListView x:Name="lista" HasUnevenRows="True" ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

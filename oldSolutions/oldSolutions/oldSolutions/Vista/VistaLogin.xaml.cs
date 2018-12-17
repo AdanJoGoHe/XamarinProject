@@ -20,8 +20,7 @@ namespace oldSolutions.Vista
 	{
         public ObservableCollection<PostOperador> Posts { get; set; }
         private HttpCliente connection = new HttpCliente("operador/"); //Instancia de la clase HttpCliente
-        private string conexion = "conectando...";
-        private Boolean conexionBool = true;
+        
         private Core core = new Core();
         public VistaLogin ()
 		{
@@ -34,7 +33,9 @@ namespace oldSolutions.Vista
         {
             logoEmpresa.Source = core.logoEmpresa;
             botonEnviar.IsEnabled=false;
-            string content = null;
+            string conexion = "conectando...";
+            Boolean conexionBool = true;
+        string content = null;
             try
             {
                 content = await connection.Response.GetStringAsync(connection.Url); //Sends a GET request to the specified Uri and returns the response body as a string in an asynchronous operation
@@ -48,7 +49,6 @@ namespace oldSolutions.Vista
             }
             catch (WebException)
             {
-                //Fallo con la 
                 conexion = "No hay conexión con el servicio web, contacte con el administrador del servicio web.";
                 conexionBool = false;
                 //TODO : implementar base de datos local.
@@ -95,7 +95,6 @@ namespace oldSolutions.Vista
             }
             if(error==false)
             {
-
                 PostOperador po = null;
                 try
                 {
@@ -117,6 +116,9 @@ namespace oldSolutions.Vista
                     }
                     else
                         Test.Text = "Nooo..  - " + aux + " - " + po.password;
+                        failMsg.IsVisible = true;
+                        msgerror = "No existe el usuario o la contraseñá";
+                        failMsg.Text = msgerror;
                 }
                 else
                 {

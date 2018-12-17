@@ -5,8 +5,8 @@
     <ContentPage.Content>
         <StackLayout >
             <StackLayout Margin="5,5,2,2" Orientation="Horizontal">
-                <Image x:Name="logoEmpresa" WidthRequest="50" HeightRequest="50"></Image>
-                <Label Text="OLDSOLUTIONS" TextColor="Black" ></Label>
+                <Image x:Name="logoEmpresa" WidthRequest="350" HeightRequest="50"></Image>
+                <!-- <Label Text="OLDSOLUTIONS" TextColor="Black" ></Label>!-->
             </StackLayout>
             <Label x:Name="failMsg" Text="" IsVisible="False" TextColor="Red"></Label>
             <StackLayout Padding="2,5,2,2" Orientation="Horizontal" Margin="5,5,5,5">

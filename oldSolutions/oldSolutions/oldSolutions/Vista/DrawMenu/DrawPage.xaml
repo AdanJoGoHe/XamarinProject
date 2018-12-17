@@ -8,13 +8,13 @@
         <ContentPage Title="Menu">
             <StackLayout>
                 <ListView x:Name="MenuDesplegable"
-                          RowHeight="25"
+                          RowHeight="85"
                           ItemSelected="MenuDesplegable_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <Label Text="{Binding Title}"/>
+                                    <Label Text="{Binding Title}" FontSize="Large" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

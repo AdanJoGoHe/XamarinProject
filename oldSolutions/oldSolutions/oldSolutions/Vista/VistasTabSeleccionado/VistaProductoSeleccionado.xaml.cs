@@ -41,15 +41,15 @@ namespace oldSolutions.Vista
             updateButon.IsVisible = false;
             deleteButon.IsVisible = false;
         }
-        protected override void OnAppearing()
-        {
-
-        }
 
         private async void OnAdd(object sender, EventArgs e)
         {
             string content = JsonConvert.SerializeObject(new { nombre = nombreProducto.Text, descripcion = descripcionProducto.Text} ); //Serializes or convert the created Post into a JSON String
-            await connection.Response.PostAsync(connection.Url, new StringContent(content, Encoding.UTF8, "application/json")); //Send a POST request to the specified Uri as an asynchronous operation and with correct character encoding (utf9) and contenct type (application/json).
+            var eksudi =  await connection.Response.PostAsync(connection.Url, new StringContent(content, Encoding.UTF8, "application/json")); //Send a POST request to the specified Uri as an asynchronous operation and with correct character encoding (utf9) and contenct type (application/json).
+            
+
+            if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha modificado correctamente el producto", ToastLength.Long).Show(); }
+            else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }
             await Navigation.PopAsync();
         }
 
@@ -63,21 +63,19 @@ namespace oldSolutions.Vista
             string content = JsonConvert.SerializeObject(pp); //Serializes or convert the created Post into a JSON String
 
             var eksudi = await connection.Response.PutAsync(connection.Url, new StringContent(content, Encoding.UTF8, "application/json")); //Send a PUT request to the specified Uri as an asynchronous operation.
-            /*
-            if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha modificado correctamente al operador", ToastLength.Long).Show(); }
-            else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }
-            */
+            
+            if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha modificado correctamente el producto", ToastLength.Long).Show(); }
+            else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }            
             await Navigation.PopAsync();
         }
 
         private async void OnDelete(object sender, EventArgs e)
         {
 
-            var rutaRelativa = "/deletefromid/" + pp.IdProducto;
-            var eksudi = await connection.Response.DeleteAsync(connection.Url + rutaRelativa); //Send a DELETE request to the specified Uri as an asynchronous 
-            
-            if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha eliminado correctamente al operador", ToastLength.Long).Show(); }
-            else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }
+            var rutaRelativa = "deletefromid/" + pp.IdProducto;
+            var eksudi = await connection.Response.DeleteAsync(connection.Url + rutaRelativa); //Send a DELETE request to the specified Uri as an asynchronous             
+            if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha eliminado correctamente el producto", ToastLength.Long).Show(); }
+            else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error...", ToastLength.Long).Show(); }
             
             await Navigation.PopAsync();
         }

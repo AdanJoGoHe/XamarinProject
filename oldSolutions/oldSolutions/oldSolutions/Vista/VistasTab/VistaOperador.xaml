@@ -11,6 +11,7 @@
     </ContentPage.ToolbarItems>
     
     <StackLayout>
+        <Label x:Name="labelErrorConexion" IsVisible="False"/>
         <ListView x:Name="lista" HasUnevenRows="True" ItemSelected="OnItemSelected">
            <ListView.ItemTemplate>
                 <DataTemplate>

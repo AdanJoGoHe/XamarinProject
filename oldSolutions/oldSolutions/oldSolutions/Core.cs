@@ -8,7 +8,7 @@ namespace oldSolutions
     class Core
     {
 
-        public string logoEmpresa = "https://i.imgur.com/Ak2MhPQ.jpg";
+        public string logoEmpresa = "https://i.imgur.com/eJtSNae.png";
 
         public string Hash(string input)
         {
