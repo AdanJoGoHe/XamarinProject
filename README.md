@@ -1,34 +1,36 @@
 # *Tienda_Informatica_OldSolutions*
 *Aplicación piloto con Xamarin - mysql - node*
 
-
-
 *Autor* : ***Adán José Gómez Hernández***
 
 *Contacto* : ***AdanJoGoHe@gmail.com***
 
-<img src="https://i.imgur.com/6NkcWsi.png" alt="hola" style="border-style: double"/> 
+<img src="https://i.imgur.com/6NkcWsi.png" alt="Imagen Pila Tecnologica"/> 
 
 *El objetivo del proyecto será la creación de un sistema de gestión reparaciones para una tienda física de informática. La aplicación tendrá numerosas funcionalidades relacionadas con reparar productos.*
 
-<p style="font-size: 10px;"> El cliente y la idea son ficticias, existen con el fin de dar un propósito a la aplicación, también estoy utilizando este proyecto para afianzarme con GIT y GITHub. Se esperan fallos con el fin de aprender.</p>
+<p> El cliente y la idea son ficticias, existen con el fin de dar un propósito a la aplicación, también estoy utilizando este proyecto para afianzarme con GIT y GITHub. Se esperan fallos con el fin de aprender.</p>
 
-Tabla de contenidos
-------------------
+# Tabla de contenidos
+
 
 1. [Descripción de la idea](#Descripción-de-la-idea)
-2. [Descripción de la aplicación](#Descripción-de-la-aplicación)
-3. [Especificación de la base de datos](#Especificación-de-la-base-de-datos)
-4. [Herramientas Utilizadas](#Herramientas-Utilizadas)
+2. [Descripción de la base de datos](#Descripción-de-la-base-de-datos)
+3. [Mockups y vistas](#MockUps-y-Vistas.) 
+4. [Descripción de la aplicación](#Descripción-de-la-aplicación)
+
+5. [Herramientas Utilizadas](#Herramientas-Utilizadas)
 
 
-Descripción de la idea
-------------------
+# Descripción de la idea
+
 El cliente me ha solicitado la creación de un programa para la gestión de reparaciones que realizan en la tienda creando una aplicación que sean capaz de manejar a través del móvil. 
 
 Las reparaciones se realizaran sobre equipos informáticos como ordenadores o servidores.
 
 Cuando un cliente solicite una reparación y haya sido tramitada se le dará un ticket con un numero, este numero a través de la web podrá ver el estado del producto, las reparaciones tendrán varios estados que serán explicados a continuación.
+
+## Historias de usuario 
 
 Las reparaciones se podrán crear, donde se le dará un tiempo estimado para la reparación el cual sera genérico de 2 días.
 
@@ -42,8 +44,136 @@ Las reparaciones se podrán entregar, el producto ha sido reparado y entregado a
 
 Las reparaciones se podrán eliminar, el producto ha sido devuelto sin reparar por circunstancias varias.
 
-Descripción de la aplicación
----------------------
+También, se debe poder gestionar los operadores, clientes y productos desde la propia aplicación.
+
+# Descripción de la base de datos 
+
+-- --------------------------------------------------------
+-- Host:                         192.168.1.93
+
+-- Versión del servidor:         5.7.24 - MySQL Community Server (GPL)
+
+-- SO del servidor:              Linux
+
+-- HeidiSQL Versión:             9.5.0.5196
+-- --------------------------------------------------------
+
+Creacion de la base de datos y las tablas : <https://pastebin.com/NwU5tVp0>
+
+* 2.1 [Diagrama entidad relacion](#Diagrama-entidad-relación) 
+* 2.2 [Tablas](#Tablas) 
+
+## Diagrama entidad relación
+<a href="https://i.imgur.com/OvCVqxE.png"><img src="https://i.imgur.com/OvCVqxE.png" alt="hola" style="width: 700px; height: 460px; "/> </a>
+
+[Otra posible solución](https://i.imgur.com/wg27Re6.png).
+
+
+## Tablas
+![](https://i.imgur.com/kGDHbvk.png)
+
+### Tabla Cliente
+
+![](https://i.imgur.com/3WhjEww.png)
+
+El ***cliente*** *compra* ***reparacion***. El cliente contendrá un **nombre**, también tendremos un **telefono_contacto** donde almacenaremos el teléfono , una contraseña y un **id_cliente**.
+
+### Tabla Operador
+
+![](https://i.imgur.com/4zsiufB.png)
+
+El ***operador*** *realiza* ***reparación***. El operador tendrá un, **nombre** un **apellido**, un **dni**, una **contraseña** y un **id_operador**.
+
+### Tabla Producto
+
+![](https://i.imgur.com/ZLDUNb6.png)
+
+El ***producto*** es *utilizado* en ***reparacion***, almacenaremos el **nombre** del producto, una **descripcion** del mismo y una **id_producto**.
+
+### Tabla Reparación
+
+![](https://i.imgur.com/Q2zV4Zq.png)
+
+De la ***REPARACION*** guardaremos :
+- **id_reparacion** Integer auto-incrementado.
+
+- **id_cliente**  id del cliente que la haya solicitado.
+
+- **id_operador** id del operador que tome la reparación.
+
+- **fecha_entrega** Fecha en la que el cliente entregada el objeto a reparar a la tienda.
+
+- **fecha_estimada** Por defecto dos días después de recoger el pedido aunque puede ser aplazada manualmente por un operador.
+
+- **fecha_reparacion** La fecha en la que se ha reparado el producto. 
+
+- **fecha_recogida** La fecha en la que el objeto es devuelto al propietario.
+
+- **estado** de la reparación que estará limitado a 5 estados que serán "En proceso","Reparado","Entregado", "Entregado sin reparar" y "Detenida",.
+
+- **descripcion** que puede ser la idea aproximada del problema.
+
+- **precio_total** Precio de los productos utilizados en la reparación y tarifa.
+
+
+
+# MockUps y Vistas.
+
+## MockUp interactivo 
+
+<https://app.moqups.com/adanjogohe@gmail.com/R6m1FFlfTT/view>
+
+## Vistas
+
+
+
+# Descripción del servidor
+
+#### Tecnología : NodeJS
+
+#### Sistema Operativo : Windows 10(Posible cambio a debian)
+
+#### Manual de Instalación y uso :WIP
+
+#### Dependencias utilizadas :
+- [Body-parser](https://www.npmjs.com/package/body-parser).
+- [Express](https://www.npmjs.com/package/body-parser).
+- [Mysql](https://www.w3schools.com/nodejs/nodejs_mysql.asp).
+
+## Ejemplo :
+
+Caso | Descripción
+:---: | :---
+**Titulo** | ip+puerto/operador
+**Método** |GET
+**Parametros de la URL** | No tiene
+**Parametros de datos** | No tiene
+**Respuesta con exito** | Contenido de ejemplo : <br> {"id_operador":14,"dni":"74859117X","nombre":"Adreso","apellidos":"Plisu","password":null},{"id_operador":15,"dni":"45346569E","nombre":"Adan","apellidos":"Leonhardt","password":"dd94709528bb1c83d08f3088d4043f4742891f4f"}] 
+ 
+ 
+# Descripción de la aplicación
+
+
+-----------------
+#### Tecnología : Xamarin
+
+#### Sistema Operativo : Windows 10
+
+#### Manual de Instalación y uso :WIP
+
+### Dependencias utilizadas :
+- [Newtonsoft.json (12.0.1)](https://www.npmjs.com/package/body-parser).
+- [System.Net.Http (4.3.4)](https://www.npmjs.com/package/body-parser).
+- [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/).
+
+-----------------
+## Linting 
+
+El software que utilize para mejorar el codigo es **SonarAnalyzer** que se instala como complemento en el proyecto.
+ 
+![](https://i.imgur.com/10oLape.png)
+
+## Funcionalidades 
 La aplicación contara con un CRUD desde la aplicación a el servicio web.
 
 El estado **Crear reparación** constara de un create que creara una tupla en la base de datos con los respectivos datos introducidos en la aplicación.
@@ -58,55 +188,45 @@ El estado **suspender reparación** constara de un put que modificara el **estad
 
 El estado **reparación terminada** constara de un put del campo "fecha de entrega" por la fecha dada por el operador y el campo **estado** se pondrá en "terminado".
 
-Especificación de la base de datos
----------------------
-En la base de datos almacenaremos ***CLIENTE***, el ***cliente*** *compra* ***reparacion***. El cliente sera almacenado por cada reparación prestada y contendrá un **nombre**, en caso de no ser dado por alguna razón se le pondrá "cliente físico", también tendremos un **telefono_contacto** donde almacenaremos el teléfono del cliente en caso de ser dado y un **id_cliente**.
-
-También almacenaremos el ***OPERADOR***, el ***operador*** *realiza* ***reparación***. El operador tendrá un, **nombre** un **apellido**, un **dni** y un **id_operador**.
-
-Existirá ***PRODUCTO***, el ***producto*** es *utilizado* en ***reparacion***,  almacenaremos el **nombre** del producto, una **descripcion** del mismo y una **id_producto**.
-
-De la ***REPARACION*** guardaremos **estado** de la reparación que estará limitado a 5 estados que serán "En proceso","Reparado","Entregado", "Suspendido" y "Detenida", **descripcion** que puede ser la idea aproximada del problema, **fecha_estimada** que sera por defecto dos días después de recoger el pedido aunque puede ser aplazada manualmente por un operador, **fecha_reparacion** que sera la fecha en la que se ha reparado el producto. **fecha_entrega** que sera la fecha en la que se ha entregado e **id_reparacion**.
-  
-
-
-## Diagrama entidad relación
-<img src="https://i.imgur.com/OvCVqxE.png" alt="hola" style="width: 700px; height: 460px; "/> 
-
-[Imagen completa](https://i.imgur.com/OvCVqxE.png)
-
-[Otra posible solución](https://i.imgur.com/wg27Re6.png).
-
 
 ## Diagrama de clases
-<img src="https://i.imgur.com/Lu5S7Iy.png" alt="hola" style="width: 700px; height: 460px; "/>
+<a href="https://i.imgur.com/Lu5S7Iy.png"><img src="https://i.imgur.com/Lu5S7Iy.png" alt="hola" style="width: 700px; height: 460px; "/></a>
 
-[Link a la imagen](https://i.imgur.com/Lu5S7Iy.png)
+## Casos de uso
+
+![](https://i.imgur.com/jSr9ojp.png)
+## Manual de usuario
+
+Acción | Uso | GIF
+ :---: | :---: | :---:
+Añadir (Generico a todas las clases) | Una vez dentro de la vista se seleccionara sobre el boton "Add" posicionado en la parte superior derecha, una vez dentro de la nueva vista se añadiran los datos pertinentes y seleccionaremos el boton Add posicionado en la parte inferior. |<a href="https://i.imgur.com/ZRobkKw.gif"><img src="https://i.imgur.com/ZRobkKw.gif" width="100%" height="100%"  ></a>
+Modificar(Generico a todas las clases) | Una vez dentro de la vista se seleccionara el item que quieras modificar, dentro se cambiara el dato que quisieras cambiar y pulsar sobre "modificar" | <a href="https://i.imgur.com/Nb9t0nI.gif"><img src="https://i.imgur.com/Nb9t0nI.gif" width="100%" height="100%"  ></a>
+Eliminar(Generico a todas las clases) | Una vez dentro de la vista se seleccionara el item que quieras eliminar, dentro se pulsara sobre "eliminar" | <a href="https://i.imgur.com/gYgEwZK.gif"><img src="https://i.imgur.com/gYgEwZK.gif" width="100%" height="100%"  ></a>
 
 
 
-Herramientas Utilizadas
----------------------
+# Herramientas Utilizadas
+
 Una descripción de las herramientas y tecnologías utilizadas en este proyecto.
 
-## Xamarin :
-<img src="https://i.imgur.com/O4ilwXe.png" alt="hola" style="width: 200px; height: 125px; "/>
+## Tecnologías utilizadas : 
+Tecnología | Descripción
+ :---: | :---
+<a href="https://visualstudio.microsoft.com/es/xamarin/"><img src="https://i.imgur.com/O4ilwXe.png" width="200px" height="125px"  ></a> | Xamarin o para ser mas especifico xamarin.forms es la tecnología principal de este proyecto, su premisa consiste en el desarrollo de una aplicación móvil que programando una base de código(codebase), se despliegue para todas las plataformas móviles(Android,IOS,Windows). he utilizado el paquete Newtonsoft.Json 
+<a href="https://www.mysql.com/" margin="10px"><img src="https://i.imgur.com/y8unasD.png" height="175" width="175"  ></a> | MySQL es un gestor de base de datos relacionales muy popular en el mercado actual, este se encargara de el almacenamiento.
+<a href="https://nodejs.org/en/"><img src="https://i.imgur.com/kIwlxRv.png" width="200px" height="125px"  ></a> | NodeJS Se encargara de la parte de el apartado del servidor redirigiendo las conexiones a la base de datos.
 
-Xamarin o para ser mas especifico xamarin.forms es la tecnología principal de este proyecto, su premisa consiste en el desarrollo de una aplicación móvil que programando una base de código(codebase), se despliegue para todas las plataformas móviles(Android,IOS,Windows). 
+## Software : 
 
-Dentro de este he utilizado los paquetes :
-
-***Newtonsoft.Json*** 
-## MySql : 
-<img src="https://i.imgur.com/y8unasD.png" alt="hola" style="width: 150px; height: 150px; "/>
-
-MySQL es un gestor de base de datos relacionales muy popular en el mercado actual, este se encargara de el almacenamiento.
+Herramienta | Descripción
+ :---: | :---
+<a href="https://visualstudio.microsoft.com/es/"><img src="https://i.imgur.com/9KvwFxG.jpg" width="200px" height="125px" align="left" ></a> | Visual studio 2017 es la herramienta necesaria para poder programar en xamarin, es una herramienta muy customizable desarrollada por microsoft.
+<a href="https://www.heidisql.com/"><img src="https://i.imgur.com/UXPh7Tb.png" width="150px" height="125px" align="center" ></a> | HeidiSql es un conector de bases de datos que funciona tanto con Mysql como con postgreSQL, es Open source y completamente gratis.
+<a href="https://visualstudio.microsoft.com/es"><img src="https://i.imgur.com/AzHbL6i.png" width="200px" height="125px" align="left" ></a> | Visual Studio Code es un editor de codigo desarrollado por Microsoft el cual integra sistemas como Git.
 
 
-## Node :
-<img src="https://i.imgur.com/kIwlxRv.png" alt="hola" style="width: 225px; height: 150px; "/>
 
-NodeJS Se encargara de la parte de el apartado del servidor redirigiendo las conexiones a la base de datos.
+
 
 
 
