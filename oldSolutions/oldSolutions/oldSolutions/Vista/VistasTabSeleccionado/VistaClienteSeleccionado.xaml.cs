@@ -20,9 +20,9 @@ namespace oldSolutions.Vista
         PostCliente pc;
         public ObservableCollection<PostCliente> _posts { get; set; }
         private HttpCliente connection = new HttpCliente("cliente/"); //Instancia de la clase HttpCliente
-        private String Titulo
+        public String Titulo
         {
-            get { return Titulo; } set { Titulo = value; }
+            get{ return Titulo; } set { Titulo = value; }
         }
 
         public VistaClienteSeleccionado(PostCliente postCliente)
@@ -32,7 +32,6 @@ namespace oldSolutions.Vista
             nombreCliente.Text = pc.Nombre;
             telefonoCliente.Text = pc.Telefono;
             idCliente.Text = pc.Id.ToString();
-            passCliente.Text = pc.password;
             addButon.IsVisible = false;
         }
         public VistaClienteSeleccionado()

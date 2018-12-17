@@ -50,6 +50,19 @@ namespace oldSolutions.Modelo
             }
         }
 
+        private String _imagen;
+        [JsonProperty("url_imagen")]
+        public String Imagen
+        {
+            get => _imagen;
+            set
+
+            {
+                _imagen = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

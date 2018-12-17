@@ -14,14 +14,17 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
-                            <StackLayout Margin="10,10,10,1" Orientation="Horizontal">
-                                <Label  Text="Nombre :"/>
-                                <Label TextColor="DarkGreen" Text="{Binding Nombre}"/>
-                            </StackLayout>
-                            <StackLayout Margin="10,1,10,10" Orientation="Horizontal">
-                                <Label Text="Descripcion : "/>
-                                <Label TextColor="DarkBlue" Text="{Binding Descripcion}"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Imagen}" WidthRequest="50" HeightRequest="50"/>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Margin="10,10,10,1" Orientation="Horizontal">
+                                    <Label  Text="Nombre :"/>
+                                    <Label TextColor="DarkGreen" Text="{Binding Nombre}"/>
+                                </StackLayout>
+                                <StackLayout Margin="10,1,10,10" Orientation="Horizontal">
+                                    <Label Text="Descripcion : "/>
+                                    <Label TextColor="DarkBlue" Text="{Binding Descripcion}"/>
+                                </StackLayout>
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

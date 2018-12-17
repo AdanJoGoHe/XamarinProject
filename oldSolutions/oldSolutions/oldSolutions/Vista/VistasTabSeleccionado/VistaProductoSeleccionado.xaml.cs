@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Android.Widget;
+using Newtonsoft.Json;
 using oldSolutions.Modelo;
 using System;
 using System.Collections.Generic;
@@ -72,11 +73,12 @@ namespace oldSolutions.Vista
         private async void OnDelete(object sender, EventArgs e)
         {
 
-            var eksudi = await connection.Response.DeleteAsync(connection.Url + "/DeleteFromId/" + pp.IdProducto); //Send a DELETE request to the specified Uri as an asynchronous 
-            /*
+            var rutaRelativa = "/deletefromid/" + pp.IdProducto;
+            var eksudi = await connection.Response.DeleteAsync(connection.Url + rutaRelativa); //Send a DELETE request to the specified Uri as an asynchronous 
+            
             if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha eliminado correctamente al operador", ToastLength.Long).Show(); }
             else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }
-            */
+            
             await Navigation.PopAsync();
         }
     }

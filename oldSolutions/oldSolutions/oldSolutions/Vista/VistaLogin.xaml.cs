@@ -22,6 +22,7 @@ namespace oldSolutions.Vista
         private HttpCliente connection = new HttpCliente("operador/"); //Instancia de la clase HttpCliente
         private string conexion = "conectando...";
         private Boolean conexionBool = true;
+        private Core core = new Core();
         public VistaLogin ()
 		{
 			InitializeComponent ();
@@ -31,6 +32,7 @@ namespace oldSolutions.Vista
 
         protected override async void OnAppearing()
         {
+            logoEmpresa.Source = core.logoEmpresa;
             botonEnviar.IsEnabled=false;
             string content = null;
             try
@@ -81,7 +83,8 @@ namespace oldSolutions.Vista
         private async void Button_Clicked(object sender, EventArgs e)
         {
             Boolean error = false;
-            string msgerror = " " ;
+            failMsg.IsVisible = false;
+            string msgerror = " ";
             if(passInput.Text==null)
             {
                 error = true;                
@@ -92,19 +95,40 @@ namespace oldSolutions.Vista
             }
             if(error==false)
             {
-                PostOperador po = Posts.FirstOrDefault(o => o.Dni == dniEntry.Text);
-                var aux = Hash(passInput.Text);
-                if (aux == po.password)
+
+                PostOperador po = null;
+                try
                 {
-                    Test.Text = "Viva - " + aux + " - " + po.password;
-                    await Navigation.PushModalAsync(new DrawPage());
+                    po = Posts.FirstOrDefault(o => o.Dni == dniEntry.Text);
+                }
+                catch(Exception)
+                {
+                    Test.Text = "Ha ocurrido un error";
+                }
+                
+                if(po!=null)
+                {
+                    Test.Text = "ESTOY AQUI";
+                    var aux = core.Hash(passInput.Text);
+                    if (aux == po.password)
+                    {
+                        Test.Text = "Viva - " + aux + " - " + po.password;
+                        await Navigation.PushModalAsync(new DrawPage());
+                    }
+                    else
+                        Test.Text = "Nooo..  - " + aux + " - " + po.password;
                 }
                 else
-                    Test.Text = "Nooo..  - " + aux + " - " + po.password;
+                {
+                    failMsg.IsVisible = true;
+                    msgerror = "No existe el usuario o la contraseñá";
+                    failMsg.Text = msgerror;
+                }
             }
             else
             {
-                msgerror = "El usuario o la contraseña son errorneos";
+                failMsg.IsVisible = true;
+                msgerror = "Hay campos vacios...";
                 failMsg.Text = msgerror;
             }
             
@@ -112,21 +136,6 @@ namespace oldSolutions.Vista
 
         }
 
-        static string Hash(string input)
-        {
-            using (SHA1Managed sha1 = new SHA1Managed())
-            {
-                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
-                var sb = new StringBuilder(hash.Length * 2);
-
-                foreach (byte b in hash)
-                {
-                    // can be "x2" if you want lowercase
-                    sb.Append(b.ToString("x2"));
-                }
-
-                return sb.ToString();
-            }
-        }
+       
     }
 }
