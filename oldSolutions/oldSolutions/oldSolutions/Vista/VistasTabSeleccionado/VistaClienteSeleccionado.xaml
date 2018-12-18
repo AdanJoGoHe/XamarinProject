@@ -6,6 +6,7 @@
     
     <ContentPage.Content>
         <StackLayout>
+            <Label x:Name="Mensajerror" TextColor="Crimson"></Label>
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
                 <Label x:Name="idLabel"  Text="ID :" />
                 <Entry x:Name="idCliente" Placeholder="id.."/>
@@ -16,7 +17,7 @@
             </StackLayout>
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
                 <Label Text="Telefono :"/>
-                <Entry x:Name="telefonoCliente" Placeholder="apellidos.." />
+                <Entry x:Name="telefonoCliente" Placeholder="Telefono.." />
             </StackLayout>
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
                 <Label Text="Contraseña :"/>

@@ -5,11 +5,9 @@
              x:Class="oldSolutions.Vista.MainMenu"
              Title="Gestion de reparaciones">
     <TabbedPage.Children>
-        <tabs:Page1/>
+        <tabs:VistaReparacion/>
         <tabs:VistaCliente/>
         <tabs:VistaOperador/>
         <tabs:VistaProductos/>
-    </TabbedPage.Children>
-    
-    
+    </TabbedPage.Children>   
 </TabbedPage>

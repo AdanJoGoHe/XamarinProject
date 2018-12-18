@@ -12,7 +12,7 @@ namespace oldSolutions.Vista
         private const string _ipLocal = "serex.ddns.net";
         private const string _puerto = ":3000/";
         private string _Url; 
-        private HttpClient _response = new HttpClient(); //Instancia HttpClient. (System.Net.Http)        
+        private readonly HttpClient _response = new HttpClient(); //Instancia HttpClient. (System.Net.Http)        
 
         
         public HttpClient Response { get => _response; }
@@ -25,3 +25,4 @@ namespace oldSolutions.Vista
         }
     }
 }
+

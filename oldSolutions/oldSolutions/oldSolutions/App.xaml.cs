@@ -14,8 +14,8 @@ namespace oldSolutions
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new MainMenu());
-            MainPage = new VistaLogin(); 
+            MainPage = new NavigationPage(new MainMenu());
+            //MainPage = new VistaLogin(); 
         }
 
         protected override void OnStart()

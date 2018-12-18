@@ -46,7 +46,6 @@ namespace oldSolutions.Vista
                 //Fallo con la 
                 conexion = "No hay conexión con el servicio web, contacte con el administrador del servicio web.";
                 conexionBool = false;
-                //TODO : implementar base de datos local.
             }
             catch (JsonReaderException)
             {
