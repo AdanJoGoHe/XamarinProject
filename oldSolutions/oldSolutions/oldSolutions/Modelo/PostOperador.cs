@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Newtonsoft.Json;
-using SQLite;
 
 namespace oldSolutions.Modelo
 {

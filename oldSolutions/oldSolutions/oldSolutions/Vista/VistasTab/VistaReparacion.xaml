@@ -3,9 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="oldSolutions.Vista.VistaReparacion"
              Title="Reparaciones">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     Clicked="AddReparacionToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Pagina 1"/>     
+            <Label x:Name="labelErrorConexion" IsVisible="False"/>
+            <ListView x:Name="lista" HasUnevenRows="True" ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Margin="10,10,10,1" Orientation="Horizontal">
+                                        <Label Text="Id Reparacion :"/>
+                                        <Label TextColor="DarkGreen" Text="{Binding id_reparacion}"/>
+                                    </StackLayout>
+                                    <StackLayout Margin="10,1,10,10" Orientation="Horizontal">
+                                        <Label Text="Descripcion : "/>
+                                        <Label TextColor="DarkBlue" Text="{Binding Descripcion}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

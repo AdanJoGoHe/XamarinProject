@@ -168,7 +168,7 @@ Caso | Descripción
 - [Newtonsoft.json (12.0.1)](https://www.npmjs.com/package/body-parser).
 - [System.Net.Http (4.3.4)](https://www.npmjs.com/package/body-parser).
 - [SonarAnalyzer.CSharp](https://www.nuget.org/packages/SonarAnalyzer.CSharp/).
-- [Sql-pcl-net](<https://web.postman.co/collections/5460163-f470ee48-1eaf-49c9-9fd6-b5385e683b55?workspace=2a137706-3147-4342-8d03-44cdbc9e2b11#b586a1da-3daa-42ff-9466-86d54164e675>)
+- [Sql-pcl-net(SQLite)]()
 
 -----------------
 ## Linting 
