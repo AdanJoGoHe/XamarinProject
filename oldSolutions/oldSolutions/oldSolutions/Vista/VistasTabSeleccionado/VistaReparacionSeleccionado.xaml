@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="oldSolutions.Vista.VistasTabSeleccionado.VistaReparacionSeleccionado">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="Mensajerror" TextColor="Crimson"></Label>
+            <StackLayout Padding="2,5,2,2" Orientation="Horizontal">
+                <Label x:Name="labelIdReparacion" Text="ID_Reparacion :"/>
+                <Entry x:Name="idReparacion" Placeholder="ID" />
+                <Label Text="ID_Cliente :"/>
+                <Entry x:Name="idCliente" Placeholder="IDCLIENTE" />
+            </StackLayout>
+            <StackLayout Padding="2,5,2,2" Orientation="Horizontal">
+                <Label Text="ID_Operador :"/>
+                <Entry  Placeholder="IDOPERADOR" />
+                <Picker x:Name="idOperador" />
+            </StackLayout>
+            <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
+                <Label Text="Fecha de entrega :"/>
+                <DatePicker x:Name="fechaEntrega"/>
+            </StackLayout>
+            <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
+                <Label Text="Precio :"/>
+                <Entry x:Name="precioProducto" Placeholder="Precio..." />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,2,10,0">
+                <Button
+                BackgroundColor="Khaki"
+                Clicked="OnAdd"
+                Text="Add" 
+                x:Name="addButon"/>
+                <Button
+                BackgroundColor="MediumPurple"
+                Clicked="OnUpdate"
+                HorizontalOptions="CenterAndExpand"
+                Text="Update" 
+                x:Name="updateButon"/>
+                <Button
+                BackgroundColor="Crimson"
+                Clicked="OnDelete"
+                Text="Delete" 
+                x:Name="deleteButon"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

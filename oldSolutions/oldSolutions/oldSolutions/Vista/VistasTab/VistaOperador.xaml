@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:modelo="clr-namespace:oldSolutions.Modelo"
+             x:Class="oldSolutions.Vista.VistaOperador"
+             Title="Operadores">  
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New"
+                     Clicked="AddOperadorToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <Label x:Name="labelErrorConexion" IsVisible="False"/>
+        <ListView x:Name="lista" HasUnevenRows="True" ItemSelected="OnItemSelected">
+           <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>                            
+                            <StackLayout Margin="10,10,10,1" Orientation="Horizontal">
+                                <Label  Text="Nombre :"/>
+                                <Label TextColor="DarkGreen" Text="{Binding Nombre}"/>
+                                <Label TextColor="DarkGreen" Text="{Binding Apellidos}"/>
+                            </StackLayout>                            
+                            <StackLayout Margin="10,1,10,10" Orientation="Horizontal">
+                                <Label Text="DNI : "/>
+                                <Label TextColor="DarkBlue" Text="{Binding Dni}"/>
+                            </StackLayout>
+                    </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>    
+</ContentPage>
