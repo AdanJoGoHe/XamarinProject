@@ -131,10 +131,12 @@ app.get('/operador/:id', (req, res) =>
     mysqlConnection.query(sql, [req.params.id], (err, rows, fields) =>
      {
         if (!err)
+        {
             res.send(rows);
+            console.log("Operador(es) recibidos correctamente.");
+        }
         else
             res.send('Ha ocurrido un error : ' + err);
-            console.log(err);
     })
 });
 
@@ -144,12 +146,14 @@ app.post('/operador', (req, res) =>
     var _dni = req.body.dni; 
     var _nombre = req.body.nombre;
     var _apellidos = req.body.apellidos;
-    var sql = 'insert into OPERADOR(dni,nombre,apellidos) values (?,?,?);';
-    mysqlConnection.query(sql,[_dni,_nombre,_apellidos], (err, rows, fields) => 
+    var _password = req.body.password;
+    var sql = 'insert into OPERADOR(dni,nombre,apellidos,password) values (?,?,?,?);';
+    mysqlConnection.query(sql,[_dni,_nombre,_apellidos,_password], (err, rows, fields) => 
     {
         if (!err)  
         {         
             res.send('Operador insertado correctamente.');
+
         }
         else
         {
@@ -237,7 +241,6 @@ app.put('/producto', (req, res) =>
     {
         if (!err)
         {
-            console.log(err+rows+fields+"Eres tonto");
             res.send('Updated successfully');
         }
         else
