@@ -28,28 +28,6 @@ app.listen(3000, () => console.log('Express server is runnig at port no : 3000')
 
 // Comienzo de las llamadas sql
 // **********************ZONA CLIENTES********************
-
-//Insert un operador, orden : dni-nombre-apelllidos
-app.post('/cliente/insertar', (req, res) => 
-{
-    var _dni = req.body.cliente.telefono_contacto; 
-    var _nombre = req.body.cliente.nombre;
-    var sql = 'insert into OPERADOR(telefono_contacto,nombre) values (?,?);';
-    mysqlConnection.query(sql,[_dni,_nombre,_apellidos], (err, rows, fields) => 
-    {
-        if (!err)  
-        {         
-            res.send('Operador insertado correctamente.');
-        }
-        else
-        {
-            res.send('Ha ocurrido un error : ' + err);
-            console.log(err);
-        }       
-    })
-});
-
-// **********************ZONA CLIENTES********************
 //Get Todos los clientes
 app.get('/cliente', (req, res) =>
 {
@@ -66,7 +44,7 @@ app.get('/cliente', (req, res) =>
 
 
 //Get cliente por telefono
-app.get('/cliente/:id', (req, res) => 
+app.get('/cliente/getbyphone/:id', (req, res) => 
 {
     var sql = 'SELECT * FROM CLIENTE WHERE telefono_contacto = ?';
     mysqlConnection.query(sql, [req.params.id], (err, rows, fields) =>
@@ -78,9 +56,61 @@ app.get('/cliente/:id', (req, res) =>
             console.log(err);
     })
 });
+
+//Insert un cliente
+app.post('/cliente', (req, res) => 
+{
+    var _telefono = req.body.telefono_contacto; 
+    var _nombre = req.body.nombre;
+    var _pass = req.body.password;
+    var sql = 'insert into CLIENTE(telefono_contacto,nombre,password) values (?,?,?);';
+    mysqlConnection.query(sql,[_telefono,_nombre,_pass], (err, rows, fields) => 
+    {
+        if (!err)  
+        {         
+            res.send('Cliente insertado correctamente.');
+        }
+        else
+        {
+            res.send('Ha ocurrido un error : ' + err);
+            console.log(err);
+        }       
+    })
+});
+
+//Put de cliente
+app.put('/cliente', (req, res) => 
+{    
+    var _id = req.body.id_cliente;
+    var _nombre = req.body.nombre;
+    var _telefono_contacto = req.body.telefono_contacto;    
+    var sql = 'update CLIENTE set telefono_contacto=?,nombre=? where id_cliente=? '
+    mysqlConnection.query(sql, [_telefono_contacto,_nombre,_id], (err, rows, fields) =>
+    {
+        if (!err)
+            res.send('Updated successfully');
+        else
+            console.log(err);
+            
+    })
+});
+
+//Delete de cliente por id
+app.delete('/cliente/deletefromid/:id', (req, res) =>
+{
+    var sql = 'DELETE FROM CLIENTE WHERE id_cliente = ?';
+    mysqlConnection.query(sql, [req.params.id], (err, rows, fields) => {
+        if (!err)
+            res.send('Deleted successfully.');
+        else
+            res.send('Ha ocurrido un error : ' + err);
+            console.log(err);
+    })
+});
 // *********************FIN ZONA CLIENTES*******************
+
 // **********************ZONA OPERADORES********************
-//Get Todos los operadores
+//Get de Todos los operadores
 app.get('/operador', (req, res) =>
 {
     var sql = 'SELECT * FROM OPERADOR';
@@ -94,7 +124,7 @@ app.get('/operador', (req, res) =>
     })
 });
 
-//Get operador por dni
+//Get de operador por dni
 app.get('/operador/:id', (req, res) => 
 {
     var sql = 'SELECT * FROM OPERADOR WHERE dni = ?';
@@ -108,25 +138,12 @@ app.get('/operador/:id', (req, res) =>
     })
 });
 
-//Delete un operador por dni
-app.delete('/operador/:id', (req, res) =>
-{
-    var sql = 'DELETE FROM OPERADOR WHERE dni = ?';
-    mysqlConnection.query(sql, [req.params.id], (err, rows, fields) => {
-        if (!err)
-            res.send('Deleted successfully.');
-        else
-            res.send('Ha ocurrido un error : ' + err);
-            console.log(err);
-    })
-});
-
-//Insert un operador, orden : dni-nombre-apelllidos
+//Insert de operador
 app.post('/operador', (req, res) => 
 {
-    var _dni = req.body.operador.dni; 
-    var _nombre = req.body.operador.nombre;
-    var _apellidos = req.body.operador.apellidos;
+    var _dni = req.body.dni; 
+    var _nombre = req.body.nombre;
+    var _apellidos = req.body.apellidos;
     var sql = 'insert into OPERADOR(dni,nombre,apellidos) values (?,?,?);';
     mysqlConnection.query(sql,[_dni,_nombre,_apellidos], (err, rows, fields) => 
     {
@@ -142,14 +159,15 @@ app.post('/operador', (req, res) =>
     })
 });
 
+//Update de operador
 app.put('/operador', (req, res) => 
 {    
-    var _dni = req.body.operador.dni; 
-    var _nombre = req.body.operador.nombre;
-    var _apellidos = req.body.operador.apellidos;
-    var _dni_a_cambiar = req.body.operador.dni_a_cambiar; 
-    var sql = 'update operador set dni=?,nombre=?,apellidos=? where dni=? '
-    mysqlConnection.query(sql, [_dni,_nombre,_apellidos,_dni_a_cambiar], (err, rows, fields) =>
+    var _dni = req.body.dni; 
+    var _nombre = req.body.nombre;
+    var _apellidos = req.body.apellidos;
+    var _id = req.body.id_operador; 
+    var sql = 'update OPERADOR set dni=?,nombre=?,apellidos=? where id_operador=? '
+    mysqlConnection.query(sql, [_dni,_nombre,_apellidos,_id], (err, rows, fields) =>
     {
         if (!err)
             res.send('Updated successfully');
@@ -158,18 +176,88 @@ app.put('/operador', (req, res) =>
             
     })
 });
-// **********************FIN ZONA OPERADORES********************
-//Update an employees
-app.put('/employees', (req, res) => 
+
+//Delete de operador por dni
+app.delete('/operador/deletefromid/:id', (req, res) =>
 {
-    let emp = req.body;
-    var sql = "SET @EmpID = ?;SET @Name = ?;SET @EmpCode = ?;SET @Salary = ?; \
-    CALL EmployeeAddOrEdit(@EmpID,@Name,@EmpCode,@Salary);";
-    mysqlConnection.query(sql, [emp.EmpID, emp.Name, emp.EmpCode, emp.Salary], (err, rows, fields) =>
-    {
+    var sql = 'DELETE FROM OPERADOR WHERE id_operador = ?';
+    mysqlConnection.query(sql, [req.params.id], (err, rows, fields) => {
         if (!err)
-            res.send('Updated successfully');
+            res.send('Deleted successfully.');
         else
+            res.send('Ha ocurrido un error : ' + err);
             console.log(err);
     })
 });
+// **********************FIN ZONA OPERADORES********************
+
+// **********************ZONA PRODUCTOS********************
+//Get de los productos
+app.get('/producto', (req, res) =>
+{
+    var sql = 'SELECT * FROM PRODUCTO';
+    mysqlConnection.query(sql, (err, rows, fields) => 
+    {
+        if (!err)
+            res.send(rows);
+        else
+            res.send('Ha ocurrido un error : ' + err);
+            console.log(err);
+    })
+});
+
+//Insert de producto
+app.post('/producto', (req, res) => 
+{
+    var _nombre = req.body.nombre; 
+    var _descripcion = req.body.descripcion;
+    var sql = 'insert into PRODUCTO(nombre,descripcion) values (?,?);';
+    mysqlConnection.query(sql,[_nombre,_descripcion], (err, rows, fields) => 
+    {
+        if (!err)  
+        {         
+            res.send('Producto insertado correctamente.');
+        }
+        else
+        {
+            res.send('Ha ocurrido un error : ' + err);
+            console.log(err);
+        }       
+    })
+});
+
+//update de producto
+app.put('/producto', (req, res) => 
+{    
+    var _nombre = req.body.nombre; 
+    var _descripcion = req.body.descripcion;
+    var _id = req.body.id_producto; 
+    var sql = 'update PRODUCTO set nombre=?,descripcion=? where id_producto=? '
+    mysqlConnection.query(sql, [_nombre,_descripcion,_id], (err, rows, fields) =>
+    {
+        if (!err)
+        {
+            console.log(err+rows+fields+"Eres tonto");
+            res.send('Updated successfully');
+        }
+        else
+            console.log(err+rows+fields+"Ha ocurrido un error");
+            
+    })
+});
+
+//Delete de producto por id
+app.delete('/producto/deletefromid/:id', (req, res) =>
+{
+    var sql = 'DELETE FROM PRODUCTO WHERE id_producto = ?';
+    mysqlConnection.query(sql, [req.params.id], (err, rows, fields) => {
+        if (!err)
+            res.send('Deleted successfully.');
+        else
+            res.send('Ha ocurrido un error : ' + err);
+            console.log(err);
+    })
+});
+// **********************FIN ZONA PRODUCTOS********************
+
+// **********************ZONA REPARACIONES********************

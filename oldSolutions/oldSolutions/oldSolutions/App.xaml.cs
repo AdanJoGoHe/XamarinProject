@@ -1,4 +1,5 @@
 ﻿using oldSolutions.Vista;
+using oldSolutions.Vista.DrawMenu;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,11 +9,13 @@ namespace oldSolutions
 {
     public partial class App : Application
     {
+
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainMenu());
+            //MainPage = new VistaLogin(); 
         }
 
         protected override void OnStart()

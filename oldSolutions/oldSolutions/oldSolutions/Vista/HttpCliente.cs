@@ -7,11 +7,12 @@ using oldSolutions.Modelo;
 namespace oldSolutions.Vista
 {
     class HttpCliente
-    {        
-        private const string _ipLocal = "http://192.168.1.76";
+    {
+        private const string _http = "http://";
+        private const string _ipLocal = "serex.ddns.net";
         private const string _puerto = ":3000/";
         private string _Url; 
-        private HttpClient _response = new HttpClient(); //Instancia HttpClient. (System.Net.Http)        
+        private readonly HttpClient _response = new HttpClient(); //Instancia HttpClient. (System.Net.Http)        
 
         
         public HttpClient Response { get => _response; }
@@ -20,8 +21,8 @@ namespace oldSolutions.Vista
         // La url representa la ruta a llamar
         public HttpCliente(string url)
         {
-            this.Url = _ipLocal + _puerto + url;
-            
+            this.Url = _http + _ipLocal + _puerto + url;            
         }
     }
 }
+

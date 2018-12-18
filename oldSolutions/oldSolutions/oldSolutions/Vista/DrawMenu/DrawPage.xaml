@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:oldSolutions.Vista"
+             x:Class="oldSolutions.Vista.DrawMenu.DrawPage"
+                  Title="DrawPage">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <StackLayout>
+                <ListView x:Name="MenuDesplegable"
+                          RowHeight="85"
+                          ItemSelected="MenuDesplegable_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontSize="Large" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+                    
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+    <!--Muchas gracias a  : http://chettrigroup.xyz/2018/09/26/xamarin-forms-masterdetail-navigation-page-customizable-tutorial-4/ !-->
+</MasterDetailPage>
