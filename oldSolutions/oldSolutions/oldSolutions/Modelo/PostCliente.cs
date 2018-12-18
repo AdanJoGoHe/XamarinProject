@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,7 @@ namespace oldSolutions.Modelo
 
         private int _id_cliente { get; set; }
         [JsonProperty("id_cliente")]
+        [PrimaryKey, AutoIncrement]
         public int Id
         {
             get => _id_cliente;

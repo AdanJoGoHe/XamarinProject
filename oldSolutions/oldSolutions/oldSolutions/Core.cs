@@ -5,8 +5,16 @@ using System.Text;
 
 namespace oldSolutions
 {
-    class Core
+    public class Core
     {
+        /// <summary>
+        /// Expresiones regulares
+        /// </summary>
+        public string expresionRegularTelefono = @"^[+-]?\d+(\.\d+)?$";
+        public string expresionRegularNombre = @"^[a-zA-Z]+$";
+        public string expresionRegularDNI = @"^(([A - Z]\d{8})|\d{8}|(\d{8}[A-Z])|([A - Z]\d{8}[A-Z]))$";
+        public string expresionRegularNumero = " @^[0-9]+$)";
+
 
         public string logoEmpresa = "https://i.imgur.com/eJtSNae.png";
 

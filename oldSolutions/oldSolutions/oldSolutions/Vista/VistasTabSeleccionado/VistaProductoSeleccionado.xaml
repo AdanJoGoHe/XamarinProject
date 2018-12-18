@@ -4,6 +4,7 @@
              x:Class="oldSolutions.Vista.VistaProductoSeleccionado">
     <ContentPage.Content>
         <StackLayout>
+            <Label x:Name="Mensajerror" TextColor="Crimson"></Label>
             <StackLayout Padding="2,5,2,2" Orientation="Horizontal">
                 <Label x:Name="labelIdProducto" Text="ID :"/>
                 <Entry x:Name="idProducto" Placeholder="ID" />
@@ -15,6 +16,10 @@
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
                 <Label Text="Descripción :"/>
                 <Entry x:Name="descripcionProducto" Placeholder="Descripcion..." />
+            </StackLayout>
+            <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
+                <Label Text="Precio :"/>
+                <Entry x:Name="precioProducto" Placeholder="Precio..." />
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10,2,10,0">
                 <Button

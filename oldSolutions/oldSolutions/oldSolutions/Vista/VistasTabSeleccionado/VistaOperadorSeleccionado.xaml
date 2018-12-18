@@ -6,6 +6,7 @@
     
     <ContentPage.Content>
         <StackLayout>
+            <Label x:Name="Mensajerror" TextColor="Crimson"></Label>
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
                 <Label x:Name="labelIdOperador" Text="ID :" />
                 <Entry x:Name="idOperador" Placeholder="id"/>
@@ -14,11 +15,15 @@
             </StackLayout>
             <StackLayout Padding="2,5,2,2" Orientation="Horizontal">
                 <Label Text="Nombre :"/>
-                <Entry x:Name="nombreOperador" Placeholder="nombre" />
+                <Entry x:Name="nombreOperador" Placeholder="Nombre..." />
             </StackLayout>
             <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
                 <Label Text="Apellidos :"/>
-                <Entry x:Name="apellidosOperador" Placeholder="apellidos" />
+                <Entry x:Name="apellidosOperador" Placeholder="Apellidos..." />
+            </StackLayout>
+            <StackLayout Padding="0,5,0,0" Orientation="Horizontal">
+                <Label Text="Contraseña :"/>
+                <Entry x:Name="passwordOperador" Placeholder="Contraseña..." />
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10,2,10,0">
                 <Button
