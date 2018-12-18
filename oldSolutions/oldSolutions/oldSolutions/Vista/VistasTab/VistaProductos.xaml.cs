@@ -42,8 +42,7 @@ namespace oldSolutions.Vista
                 conexionBool = false;
             }
             catch (WebException)
-            {
-                //Fallo con la 
+            {                
                 conexion = "No hay conexión con el servicio web, contacte con el administrador del servicio web.";
                 conexionBool = false;
             }

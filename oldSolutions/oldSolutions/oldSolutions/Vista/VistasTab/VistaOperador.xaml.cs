@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Collections.ObjectModel;
 using System.Net;
+using System.Linq;
+using SQLite;
 
 namespace oldSolutions.Vista
 {
@@ -31,7 +33,7 @@ namespace oldSolutions.Vista
         /// Se llama a este metodo cuando aparece la ventana(antes de aparecer al usuario).
         /// </summary>
         protected override async void OnAppearing()
-        {
+        {            
             string conexion = "conectando...";
             Boolean conexionBool = true;
             string content = null;
@@ -73,7 +75,8 @@ namespace oldSolutions.Vista
                     conexion = "Hay conexión";
                 }
                 labelErrorConexion.Text = conexion;
-            }                
+            }
+
             lista.ItemsSource = Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
             base.OnAppearing();            
         }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace oldSolutions
 {
-    class Core
+    public class Core
     {
         /// <summary>
         /// Expresiones regulares

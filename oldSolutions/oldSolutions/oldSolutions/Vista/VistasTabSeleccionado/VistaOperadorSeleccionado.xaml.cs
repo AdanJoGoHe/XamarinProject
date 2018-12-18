@@ -2,6 +2,7 @@
 using Android.Widget;
 using Newtonsoft.Json;
 using oldSolutions.Modelo;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -78,13 +79,24 @@ namespace oldSolutions.Vista
             { }
             else
             {
-                string content = JsonConvert.SerializeObject(new { dni = dniOperador.Text, nombre = nombreOperador.Text, apellidos = apellidosOperador.Text, password = passwordOperador.Text }); //Serializes or convert the created Post into a JSON String
+                /*
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {
+                    
+                    if (Int32.TryParse(idOperador.Text, out int x))//comp errrores
+                        op.Id = x;
+
+                    conn.CreateTable<PostOperador>();
+                    int rowsAdded = conn.Insert(op);
+                }
+                */
+                string content = JsonConvert.SerializeObject(new { dni = dniOperador.Text, nombre = nombreOperador.Text, apellidos = apellidosOperador.Text, password = core.Hash(passwordOperador.Text) }); //Serializes or convert the created Post into a JSON String
                 var eksudi = await connection.Response.PostAsync(connection.Url, new StringContent(content, Encoding.UTF8, "application/json")); //Send a POST request to the specified Uri as an asynchronous operation and with correct character encoding (utf9) and contenct type (application/json).
 
 
                 if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha añadido correctamente al operador", ToastLength.Long).Show(); }
                 else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }
-
+                
                 await Navigation.PopAsync();
 
             }

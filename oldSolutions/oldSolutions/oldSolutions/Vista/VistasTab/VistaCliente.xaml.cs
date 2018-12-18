@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net;
+using SQLite;
 
 namespace oldSolutions.Vista
 {
@@ -29,6 +30,7 @@ namespace oldSolutions.Vista
         /// </summary>
         protected override async void OnAppearing()
         {
+            /*
             string conexion = "conectando...";
             Boolean conexionBool = true;
             string content = null;
@@ -70,8 +72,18 @@ namespace oldSolutions.Vista
                     conexion = "Hay conexión";
                 }
                 labelErrorConexion.Text = conexion;
+
+
             }
-            lista.ItemsSource = Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
+            */
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<PostCliente>();
+                var operador = conn.Table<PostCliente>().ToList();
+                lista.ItemsSource = operador; //Assigning the ObservableCollection to MyListView in the XAML of this file          
+            }
+            
+            //lista.ItemsSource = Posts; //Assigning the ObservableCollection to MyListView in the XAML of this file           
             base.OnAppearing();
         }
 

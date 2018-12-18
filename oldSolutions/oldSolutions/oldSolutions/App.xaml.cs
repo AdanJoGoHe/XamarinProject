@@ -9,15 +9,22 @@ namespace oldSolutions
 {
     public partial class App : Application
     {
+        public static string FilePath;
 
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainMenu());
-            //MainPage = new VistaLogin(); 
         }
+        public App(String filePath)
+        {
+            InitializeComponent();
 
+            MainPage = new NavigationPage(new MainMenu());
+            //MainPage = new VistaLogin();
+            FilePath = filePath;
+        }
         protected override void OnStart()
         {
             // Handle when your app starts

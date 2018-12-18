@@ -2,6 +2,7 @@
 using Android.Widget;
 using Newtonsoft.Json;
 using oldSolutions.Modelo;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -73,21 +74,30 @@ namespace oldSolutions.Vista
                     Mensajerror.Text += "El Telefono no es correcto";
                 }
             }
-
-            
-            
             if(error)
             { }
             else
             {
-                string content = null;
 
+                pc = new PostCliente();
+                pc.Nombre = nombreCliente.Text;
+                pc.password = core.Hash(passCliente.Text);
+                pc.Telefono = telefonoCliente.Text;
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {                    
+                    conn.CreateTable<PostCliente>();
+                    int rowsAdded = conn.Insert(pc);
+                }
+                await Navigation.PopAsync();
+                /*
+                string content = null;
                 content = JsonConvert.SerializeObject(new { telefono_contacto = telefonoCliente.Text, nombre = nombreCliente.Text, password = core.Hash(passCliente.Text) }); //Serializes or convert the created Post into a JSON String
                 var eksudi = await connection.Response.PostAsync(connection.Url, new StringContent(content, Encoding.UTF8, "application/json")); //Send a POST request to the specified Uri as an asynchronous operation and with correct character encoding (utf9) and contenct type (application/json).
-                await Navigation.PopAsync();
+                
 
                 if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha añadido correctamente al cliente : " + nombreCliente.Text, ToastLength.Long).Show(); }
                 else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }
+                */
             }
         }
         
@@ -122,27 +132,40 @@ namespace oldSolutions.Vista
                     pc.Id = x;
 
                 pc.password = passCliente.Text;
+
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {
+                    conn.CreateTable<PostCliente>();
+                    int rowsAdded = conn.Update(pc);
+                }
+                await Navigation.PopAsync();
+                /*
                 //Conversion a Json
                 string content = JsonConvert.SerializeObject(pc); //Serializes or convert the created Post into a JSON String
-                                                                  //Llamada al servicio web
+                //Llamada al servicio web
                 var eksudi = await connection.Response.PutAsync(connection.Url, new StringContent(content, Encoding.UTF8, "application/json")); //Send a PUT request to the specified Uri as an asynchronous operation.           
 
                 if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha modificado correctamente al cliente " + nombreCliente.Text, ToastLength.Long).Show(); }
                 else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }
-
-                await Navigation.PopAsync();
+                */
             }
         }
         
         private async void OnDelete(object sender, EventArgs e)
-        {                        
+        {
             
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                var posts = conn.CreateTable<PostCliente>();
+                conn.Delete(pc);
+            }
+            await Navigation.PopAsync();
+            /*
             var eksudi = await connection.Response.DeleteAsync(connection.Url + "DeleteFromId/" + pc.Id); //Send a DELETE request to the specified Uri as an asynchronous   
             
             if (eksudi.IsSuccessStatusCode) { Toast.MakeText(Android.App.Application.Context, "Se ha eliminado correctamente al cliente " + nombreCliente.Text, ToastLength.Long).Show(); }
             else { Toast.MakeText(Android.App.Application.Context, "Ha ocurrido un error", ToastLength.Long).Show(); }
-            
-            await Navigation.PopAsync();
+            */
         }
         
     }
